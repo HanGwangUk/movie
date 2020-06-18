@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div id='review-background'>
+    <div class='text-center pt-5 mb-4'>
+        {% if request.resolver_match.url_name == 'review_create' %}
+        <h1 class='text-center c' style='font-weight: bolder; color: rgba(255, 255, 255, 0.986);'>리뷰 작성</h1>
+        {% else %}
+        <h1 class='text-center c' style='font-weight: bolder; color: rgba(255, 255, 255, 0.986);'>수정 하기</h1>
+        {% endif %}
+    </div>
+    <div class='center-effect'>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {%bootstrap_form form%}
+            
+            <div class=' text-center mt-4'>
+                {% if request.resolver_match.url_name == 'review_create' %}
+                <button class='account-button btn btn-outline-light rounded-pill'> 리뷰 작성 </button>
+                {% else %}
+                <button class='account-button btn btn-outline-light rounded-pill'> 수정 하기 </button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    
+</div>
+{% endblock %}

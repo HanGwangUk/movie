@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for m in mo %}
+        {{m.title}}
+        {{m.id}}    
+    {% endfor %}
+    <br>
+    <!-- {% for gm in genre_movie %}
+        {{gm}}
+    {% endfor %} -->
+    <br>
+    {% for g in genre1 %}
+        {{g}}
+    {% endfor %}
+
+    
+{% endblock %}

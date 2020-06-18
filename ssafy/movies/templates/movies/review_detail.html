@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+<!-- <div id='review-detail-background'> -->
+<div style="background-color: black;">
+    <div class="flex-left ml-5" style='padding-top: 30px;'>
+            <a href="{% url 'movies:detail' movie.pk %}"><i class="fas fa-arrow-left fa-2x" style='color: tomato'></i></a>
+    </div>
+    <div style="margin:0 10rem">
+    <div class="container">
+    <!-- <div class='center-effect'> -->
+        <h1 class='text-center song-font' style='color: rgba(236, 235, 235, 0.966);'>Review</h1>
+        <hr style="border: solid 0.5px; color: rgba(245, 245, 245, 0.87); width:150px; margin-bottom: 40px;">
+        
+        <div class="container p-3">
+            <div class='mb-3'>
+                <h5 style='color: rgba(236, 235, 235, 0.966);'>제목 : {{review.title}}</h5>
+            </div>
+            <hr style="border: solid 0.3px; color: rgba(245, 245, 245, 0.582); width:100%;">
+            <p style='color: rgba(255, 255, 255, 0.966); height: 200px;'>{{review.content}}</p>
+
+
+            <hr style="border: solid 0.3px; color: rgba(245, 245, 245, 0.582); width:100%;"> 
+            <div class='d-flex'>
+                <p style='color: rgba(236, 235, 235, 0.966);' class='mr-auto'>{{review.created_at}}</p>
+                {% if request.user == review.user %}
+                <a href="{% url 'movies:review_update' review.movie.id review.pk %}">
+                    <button class='account-button btn btn-outline-light'> 수정 </button>
+                </a>
+                
+                <!-- 삭제하기 POST방식으로 보내기 -->
+                <!-- pk순서 중요 : 순서 안지키면 오류뜸 -->
+                <form action="{% url 'movies:review_delete' review.movie.id review.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button class='account-button btn btn-outline-light mx-3'> 삭제 </button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        
+        
+        <form action="{% url 'movies:comment_create' review.movie.id review.pk %}" method="POST" style='margin-top: 50px;'>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button class='account-button btn btn-outline-light'>댓글 작성</button>   
+        </form>
+        
+        <hr class='mt-5' style='background-color:whitesmoke;'>
+
+        <div style='color:rgba(236, 235, 235, 0.966)'>
+        {% for comment in review.comment_set.all %}
+            <div class='d-flex'> 
+            <p class='mr-auto'>[{{ comment.user }}]</p>
+                {% if request.user == comment.user %}
+                <a href="{% url 'movies:comment_update' review.movie.id review.pk comment.pk %}">
+                    <button class='account-button btn btn-outline-light p-1 mr-1 '>수정</button>
+                </a>
+                <form action="{% url 'movies:comment_delete' movie.pk review.pk comment.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button class='account-button btn btn-outline-light p-1'>삭제</button>  
+                </form>
+                {% endif %}
+                </div>
+            <p style='height: 50px;'>{{ comment.content }}</p>
+            <p style='font-size: small;' class='d-flex justify-content-end'>| 생성 | {{ comment.created_at }} | 수정 | {{ comment.updated_at }}</p>
+            <hr style='background-color:whitesmoke;'>
+        {% endfor %}
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

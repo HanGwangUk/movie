@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %} 
+
+{% block content %}
+
+<div id='signup-background' style='height: 610px;'>
+    <div class='center-effect text-effect'>
+        <form action="" method="POST">
+
+            {% csrf_token %}
+            <div>
+            {% bootstrap_form form %}
+            </div>
+            {% buttons %}
+            <div class='text-center'>
+                <button class='account-button btn btn-outline-light rounded-pill'>회원 가입</button>
+            </div>
+            {% endbuttons %}
+
+        </form>
+    </div>
+</div>
+{% endblock %}

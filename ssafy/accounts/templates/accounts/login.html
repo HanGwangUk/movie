@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %} 
+
+
+{% block content %}
+<div id='login-background' style='height: 610px;'>
+    <div class='center-effect text-effect'>
+        <form action="" method="POST" >
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <div class='text-center'>
+                <button class='account-button btn btn-outline-light rounded-pill'> 로그인 </button>
+            </div>
+            {% endbuttons %}
+        </form>
+        <br>
+        <div class='text-center'>
+            <p style='color: rgb(163, 163, 163);'>아직 회원이 아니신가요?</p>
+        </div>
+        <form action="{% url 'accounts:signup' %}" method="POST">
+            {% csrf_token %}
+            <div class='text-center'>
+                <button class='account-button btn btn-outline-light rounded-pill'> 회원 가입 </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock%}

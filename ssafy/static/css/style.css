@@ -1,0 +1,202 @@
+#imageSize {
+    float: left;
+    height: 60px;
+    display: flex;
+    margin-left: 20px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#fd0101ad; color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none;  color: rgb(100, 100, 100);}
+        /* background:rgba(245, 245, 245, 0); */
+
+#body {
+    background-color:rgb(66, 92, 6);
+}
+
+nav {
+    background-color: rgba(0, 3, 2, 0.842);
+}
+
+.inner-nav-list {
+    color: ivory;
+}
+
+.inner-nav-list a {
+    color: ivory;
+}
+
+#firstPage {
+    background-color: rgba(0, 0, 0, 0);
+    color: red;
+}
+
+#chajjaImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.overview1 {
+    display: inline-block; 
+    width: 100%; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+
+    white-space: normal; 
+    line-height: 1.2; 
+    height: 3.6em; 
+    text-align: left; 
+    word-wrap: break-word; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+} 
+
+.my-hr {
+    border: 0;
+    height: 3px;
+    background: rgb(249, 254, 255);  
+}
+
+.detail_page {
+    color:whitesmoke;
+    background-color: rgb(32, 34, 33);
+    height: 1000px;
+}
+
+.t{ 
+    font-family: 'East Sea Dokdo', cursive;
+    
+}
+p{
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+.c{
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+.gugi-font {
+    font-family: 'Gugi', cursive;
+    color: rgb(255, 254, 254)
+}
+
+.doh-font {
+    font-family: 'Do Hyeon', sans-serif;
+    color: rgb(255, 254, 254)
+}
+
+.song-font {
+    font-family: 'Song Myung', serif;
+    color: rgb(255, 254, 254)
+}
+
+#login-background {
+    background: url("/static/image/login_background.png");
+    background-repeat : no-repeat;
+    background-size : cover;
+    
+}
+
+
+#login-background .center-effect {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+
+#signup-background {
+    background: url("/static/image/signup_background.png");
+    background-repeat : no-repeat;
+    background-size : cover;
+    
+}
+
+#signup-background .center-effect {
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+}
+
+label {
+    color: rgb(163, 163, 163);
+    margin-top: 5px;
+}
+
+ul{
+    list-style:none;
+    padding-left: 0;
+}
+
+.account-button:hover {
+    opacity: 0.2;
+    filter: alpha(opacity=50);
+    color: whitesmoke;
+    border-radius: 3px;
+    
+}
+
+.detail-button:hover {
+    opacity: 0.2;
+    filter: alpha(opacity=50);
+    color: rgb(0, 0, 0);
+    
+}
+
+#review-background {
+    background: url("/static/image/review_background.png");
+    background-repeat : no-repeat;
+    background-size : cover;
+    min-height: 700px;
+}
+
+#review-background .center-effect {
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+}
+
+#review-detail-background {
+    /* background: url("/static/image/review_background.png"); */
+    background-color: black;
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+#id_rank{
+    width:150px;
+    padding:0;
+    margin-right: 10px;
+}
+#review-detail-background .center-effect {
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 120px;
+}
+
+
+/* Hover */

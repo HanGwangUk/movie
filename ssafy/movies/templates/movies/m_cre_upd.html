@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class='container'>
+    {% if request.resolver_match.url_name == 'movie_create' %}
+        <h2 class='mt-5 text-info text-center'>새 글쓰기</h2>
+    {% else %}
+        <h2 class='mt-5 text-info'>수정하기</h2>
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class='text-center'>
+        <button class='btn-lg btn-primary mb-5'>submit</button>
+        </div>    
+    </form>
+</div>
+{% endblock %}
