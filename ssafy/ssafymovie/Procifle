@@ -1,1 +1,1 @@
-web: gunicorn final_project.wsgi --log-file -
+web: gunicorn final_project.wsgi runserver 0.0.0.0:$PORT
